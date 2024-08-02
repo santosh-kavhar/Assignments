@@ -1,0 +1,4 @@
+./linux.sh: redirection error: cannot duplicate fd: Too many open files
+./linux.sh: line 128: error.log: Too many open files
+./linux.sh: pipe error: Too many open files
+[sudo] password for santosh: groupadd: group 'docker' already exists
