@@ -1,0 +1,59 @@
+
+
+1. Ping
+ping -c 4 geminustech.com
+// send ICMP ECHO_REQUEST to network hosts
+// Doesn't have any port
+// Runs on IP layer only using Internet Control Message Protocal(ICMP) 
+
+
+2. wget
+wget https://the.earth.li/~sgtatham/putty/latest/wa64/putty-arm64-0.81-installer.msi
+
+wget google.com
+// Used to download a file or page	
+
+
+3. curl
+curl https://www.google.com
+
+e.g curl -v -H "Accept: application/json" -H "Content-type:
+application/json" -X POST -d '{"customer_id":"812122", "event":"add_to_cart"}'
+// cURL -> See URL(Uniform Resource Locator)
+// Tool for transferring data from or to a server using URLs.
+
+
+4. telnet 
+telnet towel.blinkenlights.nl
+To run a telnet server clone this and run java program https://github.com/santoshkavhar/SMS .
+
+
+5. scp
+ssh on top of cp
+scp [OPTIONS] source destination
+scp -r Linux/error.log geminus@10.11.11.17:~/Desktop/
+
+
+6. ftp 
+Run FTP Server somewhere in same network
+On Unix clinet RUN:
+ftp ftp://192.168.1.5:2221
+
+
+7. ntp
+sudo apt install ntp
+ntpq -p 
+// List peers and their summarized state
+// Network Time Protocol
+// Time synchronization in a network
+
+8. firewall configure
+sudo systemctl status ufw
+sudo ufw deny in ssh
+
+// Uncomplicated Firewall (UFW)
+sudo ufw deny http
+
+9. Explain DHCP Server
+// Dynamic Host Configuration Protocol
+
