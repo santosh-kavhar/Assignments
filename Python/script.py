@@ -2,7 +2,6 @@ import subprocess
 
 ifconfig_output = ""
 
-
 def get_processes_output():
 	# -b for batch mode to display all the processes
 	# -n for number of iterations, here only 1
@@ -29,32 +28,40 @@ def get_processes_output():
 
 def macs_to_file():
 	# Open mac.txt for writing MACs
-	mac_file = open("mac.txt", "w")
+	try:
+		mac_file = open("mac.txt", "w")
+		for line in ifconfig_output.splitlines():
+			if line.strip().startswith("ether"):
+				mac_address = line.strip().split(" ")[1]
+				mac_file.write(mac_address + "\n")
+				#print(mac_address)
+		mac_file.close()
 
-	for line in ifconfig_output.splitlines():
-		if line.strip().startswith("ether"):
-			mac_address = line.strip().split(" ")[1]
-			mac_file.write(mac_address + "\n")
-			#print(mac)
-	mac_file.close()
+	except:
+		print("Couldn't create mac.txt file, try using sudo")
+		exit(-1)
 
+
+	
 def print_errors_to_file():
 	#files to read
 	files_to_check = ['dmesg', 'auth.log', 'boot.log', 'kern.log']
 	directory_to_check = '/var/log/'
 
-	# file to write to
-	err_file = open("err.txt", "w")
-
-	for file_name in files_to_check :
-		file = open(directory_to_check + file_name, 'r')
-		lines = file.readlines()
-		count = 0
-		for line in lines:
-			count +=1
-			if "error" in line or "fail" in line:
-				#print("File: {} \tLine: {} : {}".format(file_name, count, line.strip()))
-				err_file.write("File: {} \tLine: {} : {}\n".format(file_name, count, line.strip()))
+	try:
+		err_file = open("err.txt", "w")
+		for file_name in files_to_check :
+			file = open(directory_to_check + file_name, 'r')
+			lines = file.readlines()
+			count = 0
+			for line in lines:
+				count +=1
+				if "error" in line.lower() or "fail" in line.lower():
+					#print("File: {} \tLine: {} : {}".format(file_name, count, line.strip()))
+					err_file.write("File: {} \tLine: {} : {}\n".format(file_name, count, line.strip()))
+	except:
+		print("Couldn't create err.txt file, try using sudo")
+		exit(-1)
 
 
 get_processes_output()
