@@ -8,23 +8,22 @@ def get_processes_output():
 	processes = [ ['ifconfig'], ['df', '-h'], ['iostat'], ['top','-b', '-n', '1'] ] # ['ls', 'k']
 
 	for process in processes:
-		result = None
-		err = ""
-		output = ""
+		result, err, output = None , "", ""
+		process_name = ' '. join(process)
 		try:
 			result = subprocess.run(process, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 		except:
 			print("Please check your command!!\t", process)
 			exit(-1)
-		if result.stdout != None:
+		if result.stdout != None and result.stdout.decode('utf-8') != "":
 			output = result.stdout.decode('utf-8')
 			if process == ['ifconfig']:
 				global ifconfig_output 
 				ifconfig_output = output
-			print("\nStdOut:\n", output)
-		if result.stderr != None:
+			print("\nStdOut of process: " + process_name + "\n" + output)
+		if result.stderr != None and result.stderr.decode('utf-8') != "":
 			err = result.stderr.decode('utf-8')
-			print("\nErr:\n", err)
+			print("\nErr: " + process_name + "\n" + err)
 
 def macs_to_file():
 	# Open mac.txt for writing MACs
