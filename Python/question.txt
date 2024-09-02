@@ -1,0 +1,10 @@
+Write a python script that will :
+
+1. Capture the ifconfig, df -h, top, iostat command output on your laptop.
+2. Extract all the MAC addresses from the ifconfig output and save it to a file.
+3. Read the files ... messages, dmesg, auth.log, boot.log, kern.log, etc inside the /var/log/ folder on your laptop and search for the string "error" or "failed" and then print such rows to a separate file.
+
+Make sure you use case insensitive while doing the search
+Handle error messages for each of the above operations and print them on the screen.
+
+Note : Don't use chatgpt or other AI tools. You may use Google, Stack Overflow and similar websites.

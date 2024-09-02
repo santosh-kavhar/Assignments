@@ -1,0 +1,7 @@
+Create a simple web application that displays information : ID, Name, Age, Gender, etc of multiple people (Use any frontend backend tool)
+You can copy the source code for this web application from the internet. You aren't expected to write the code from scratch for the web application part. 
+The website should have an option / form to add, delete and edit records. 
+Use any database (mysql, postgres, mongodb,etc) to save these records. 
+Write docker files to make this web application work end to end. 
+Everything should be containerized (frontend, backend, database, etc) 
+At run time, I should be able to add, edit and delete records and the same should reflect on the web application.

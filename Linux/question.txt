@@ -1,0 +1,22 @@
+Write a shell script that will do the following :
+
+1) install mysql server,
+enable the mysql service,
+verify mysql is running,
+modify the password of root user,
+create a database with the name test
+2) install htop, curl
+3) install python and print the version of python after installation.
+4) install golang and print the version of golang after installation.
+5) install docker,
+print docker version,
+check docker is running,
+enable the current non root user to run docker commands without sudo,
+pull nginx docker image using current user.
+
+Note :
+1) For all the installations, your script should include all the intermediate steps like apt update, adding the repo key, installing dependencies, etc
+2) Handle error cases like package is already installed, node not reachable, unable to reach mysql/docker, etc and print those messages in a separate error file error.log
+3) Make the script interactive. Take input from the user which task he wants to perform. Depending on the input, do one of the 5 tasks above.
+4) Try to write optimized code and use as many commands you have learnt so far from the course.
+

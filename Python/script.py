@@ -5,7 +5,7 @@ ifconfig_output = ""
 def get_processes_output():
 	# -b for batch mode to display all the processes
 	# -n for number of iterations, here only 1
-	processes = [ ['ifconfig'], ['df', '-h'], ['iostat'], ['top','-b', '-n', '1'] ] # ['ls', 'k']
+	processes = [ ['ifconfig'], ['df', '-h'], ['iostat'], ['top','-b', '-n', '1'] ] #, ['ls', 'k'] ]
 
 	for process in processes:
 		result, err, output = None , "", ""
